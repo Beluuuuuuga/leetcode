@@ -1,9 +1,9 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        dic = {}
-        for n in nums:
-            dic[n] = 0
-        for n in nums:
-            dic[n] += 1
-        newdic = sorted(dic.items(), key=lambda x:x[1])
-        return newdic[0][0]
+        hash_table = defaultdict(int)
+        for i in nums:
+            hash_table[i] += 1
+        
+        for i in hash_table:
+            if hash_table[i] == 1:
+                return i
